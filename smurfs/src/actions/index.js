@@ -55,17 +55,33 @@ export const DELETE_SMURF_SUCCESS = 'DELETE_SMURF_SUCCESS'
 export const DELETE_SMURF_FAILURE = 'DELETE_SMURF_FAILURE'
 
 export const deleteSmurf = (id) => dispatch => {
-  dispatch({type:DELETE_SMURF_START})
+  dispatch({ type: DELETE_SMURF_START })
   return axios
-  .delete(`http://localhost:3333/smurfs/${id}`)
-  .then(res => {
-    dispatch({type:DELETE_SMURF_SUCCESS,payload:res.data})
-    console.log('delete smurf ', res.data)
-  })
-  .catch(err => {
-    dispatch({type:DELETE_SMURF_FAILURE,payload:err.response})
-  })
+    .delete(`http://localhost:3333/smurfs/${id}`)
+    .then(res => {
+      dispatch({ type: DELETE_SMURF_SUCCESS, payload: res.data })
+      console.log('delete smurf ', res.data)
+    })
+    .catch(err => {
+      dispatch({ type: DELETE_SMURF_FAILURE, payload: err.response })
+    })
 
 }
 
+export const UPDATE_SMURF_START = 'UPDATE_SMURF_START'
+export const UPDATE_SMURF_SUCCESS = 'UPDATE_SMURF_SUCCESS'
+export const UPDATE_SMURF_FAILURE = 'UPDATE_SMURF_FAILURE'
 
+export const updateSmurf = (updatedItem) => dispatch => {
+  dispatch({ type: UPDATE_SMURF_START })
+  return axios
+    .put(`http://localhost:3333/smurfs/${updatedItem.id}`, updatedItem)
+    .then(res => {
+      dispatch({ type: UPDATE_SMURF_SUCCESS, payload: res.data })
+      console.log('update smurf ', res.data)
+    })
+    .catch(err => {
+      dispatch({ type: UPDATE_SMURF_FAILURE, payload: err.response })
+      console.log('error from updating from action', err.response)
+    })
+}

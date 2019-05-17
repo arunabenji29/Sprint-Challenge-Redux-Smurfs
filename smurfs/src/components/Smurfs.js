@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {getSmurfs} from '../actions'
+import { getSmurfs } from '../actions'
 import Smurf from './Smurf'
 
 class Smurfs extends React.Component {
@@ -8,7 +8,7 @@ class Smurfs extends React.Component {
         super()
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.getSmurfs();
     }
 
@@ -26,10 +26,10 @@ class Smurfs extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    smurfs:state.smurfs,
-    fetchingSmurfs:state.fetchingSmurfs
+    smurfs: state.smurfs,
+    fetchingSmurfs: state.fetchingSmurfs
 })
 
 export default connect(
-    mapStateToProps, {getSmurfs}
+    mapStateToProps, { getSmurfs }
 )(Smurfs)

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import  Smurfs  from './Smurfs'
+import Smurfs from './Smurfs'
 import SmurfForm from './SmurfForm'
 /*
  to wire this component up you're going to need a few things.
